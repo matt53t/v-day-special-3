@@ -63,13 +63,65 @@ canvas{
   text-shadow:0 0 20px #ff6f91,0 0 40px #ff3f70;
 }
 
-/* ===== Slider vertical ===== */
-#sliderContainer { position: relative; width: 60px; height: 400px; margin: 20px auto; display: flex; justify-content: center; }
-#sliderSteps { position: absolute; bottom: 0; width: 12px; height: 100%; display: flex; flex-direction: column-reverse; justify-content: space-between; align-items: center; left: 50%; transform: translateX(-50%); }
-#sliderSteps div { width: 12px; height: 12px; background: #ff7eb3; border-radius: 6px; }
-#heartPointer { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); font-size: 28px; transition: bottom 0.3s ease; text-shadow: 0 0 15px #ff6f91, 0 0 30px #ff3f70; cursor: pointer; animation: pulse 1s infinite alternate; }
-@keyframes pulse { 0% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.2); } 100% { transform: translateX(-50%) scale(1); } }
-#loveMessage { font-size: 1.6em; font-weight: 600; color: #fff; text-shadow: 0 0 10px #ff6f91, 0 0 20px #ff3f70; margin-top: 20px; }
+/* ===== Slider vertical fix pe ecran ===== */
+#sliderContainer {
+  position: fixed;       /* fix pe ecran, nu mai urmează scroll-ul */
+  top: 50%;              /* centru vertical pe desktop */
+  left: 50%;             /* centru orizontal */
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 400px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+#sliderSteps {
+  position: absolute;
+  bottom: 0;
+  width: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#sliderSteps div {
+  width: 12px;
+  height: 12px;
+  background: #ff7eb3;
+  border-radius: 6px;
+}
+
+#heartPointer {
+  position: absolute;        /* rămâne absolut față de container */
+  bottom: 0;                 /* JS-ul modifică bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  transition: bottom 0.3s ease;
+  text-shadow: 0 0 15px #ff6f91, 0 0 30px #ff3f70;
+  cursor: pointer;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.2); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+#loveMessage {
+  font-size: 1.6em;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 10px #ff6f91, 0 0 20px #ff3f70;
+  margin-top: 20px;
+}
 
 /* ===== Citate Random Premium ===== */
 #quoteMessage {
@@ -131,4 +183,17 @@ canvas{
   #puzzleMessage { font-size: 1.6em; }
   .digitalCounter { font-size: 2.2em; }
   #passwordInput, #passwordSubmit { font-size:1.3em; padding:12px 18px; }
+
+  /* Slider mobil */
+  #sliderContainer {
+    top: auto;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 300px;
+  }
+  #heartPointer {
+    font-size: 24px;
+  }
 }
