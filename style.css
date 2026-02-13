@@ -1,0 +1,134 @@
+/* ===== General ===== */
+body {
+  font-family: 'Arial', sans-serif;
+  margin:0; padding:0;
+  text-align:center;
+  background: linear-gradient(135deg,#ffdde1,#fcefee);
+  color:#fff;
+  overflow-x:hidden;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Screens */
+.screen { padding:20px; }
+.hidden { display:none; }
+
+h1{
+  font-size:2.5em;
+  margin-bottom:20px;
+  text-shadow:1px 1px 6px rgba(0,0,0,0.2);
+}
+h2{
+  font-size:2em;
+  margin-bottom:20px;
+  text-shadow:1px 1px 5px rgba(0,0,0,0.2);
+}
+
+/* ===== Buttons premium ===== */
+button {
+  display:block; margin:20px auto;
+  padding:18px 35px;
+  font-size:1.3em;
+  border:none;
+  border-radius:25px;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white; cursor:pointer;
+  box-shadow:0 6px 15px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  position:relative; overflow:hidden;
+}
+
+button:hover{
+  transform:scale(1.05); 
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+button:active{ transform:scale(0.95); }
+
+/* ===== Canvas ===== */
+canvas{
+  margin:20px auto; 
+  display:block; 
+  border-radius:15px; 
+}
+.heartCanvas{
+  position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;
+}
+
+/* ===== Digital Counter ===== */
+.digitalCounter{
+  font-family:'Digital-7', monospace;
+  font-size:3em;
+  color:#fff;
+  text-shadow:0 0 20px #ff6f91,0 0 40px #ff3f70;
+}
+
+/* ===== Slider vertical ===== */
+#sliderContainer { position: relative; width: 60px; height: 400px; margin: 20px auto; display: flex; justify-content: center; }
+#sliderSteps { position: absolute; bottom: 0; width: 12px; height: 100%; display: flex; flex-direction: column-reverse; justify-content: space-between; align-items: center; left: 50%; transform: translateX(-50%); }
+#sliderSteps div { width: 12px; height: 12px; background: #ff7eb3; border-radius: 6px; }
+#heartPointer { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); font-size: 28px; transition: bottom 0.3s ease; text-shadow: 0 0 15px #ff6f91, 0 0 30px #ff3f70; cursor: pointer; animation: pulse 1s infinite alternate; }
+@keyframes pulse { 0% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.2); } 100% { transform: translateX(-50%) scale(1); } }
+#loveMessage { font-size: 1.6em; font-weight: 600; color: #fff; text-shadow: 0 0 10px #ff6f91, 0 0 20px #ff3f70; margin-top: 20px; }
+
+/* ===== Citate Random Premium ===== */
+#quoteMessage {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #ff3f70;
+  text-align: center;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff7eb3;
+  margin: 15px auto;
+  max-width: 90%;
+  line-height: 1.4em;
+  opacity: 0;
+  animation: quoteFadeIn 1s ease-out forwards;
+}
+@keyframes quoteFadeIn {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Puzzle Canvas ===== */
+#puzzleCanvas {
+  display: block;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(255,0,128,0.5), 0 12px 50px rgba(255,127,179,0.3);
+  touch-action: none;
+  animation: canvasGlow 2s ease-in-out infinite alternate;
+}
+@keyframes canvasGlow {
+  0% { box-shadow: 0 8px 25px rgba(255,0,128,0.3), 0 12px 50px rgba(255,127,179,0.2); }
+  50% { box-shadow: 0 12px 30px rgba(255,0,128,0.5), 0 18px 60px rgba(255,127,179,0.4); }
+  100% { box-shadow: 0 8px 25px rgba(255,0,128,0.3), 0 12px 50px rgba(255,127,179,0.2); }
+}
+
+/* ===== Puzzle Message ===== */
+#puzzleMessage {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #ff3f70;
+  text-align: center;
+  margin-top: 15px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff7eb3;
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+#puzzleMessage[style*="animation"] { opacity: 1 !important; }
+
+/* ===== Password Input ===== */
+#passwordContainer { display:flex; justify-content:center; margin-top:20px; }
+#passwordInput { padding:15px 20px; font-size:1.5em; border-radius:25px; border:none; box-shadow:0 6px 15px rgba(0,0,0,0.25); text-align:center; transition: all 0.3s ease; }
+#passwordInput:focus { outline:none; box-shadow: 0 0 15px #ff6f91, 0 0 30px #ff3f70; }
+#passwordSubmit { padding:15px 25px; margin-left:10px; font-size:1.5em; border-radius:25px; border:none; background: linear-gradient(135deg,#ff758c,#ff7eb3); color:white; cursor:pointer; box-shadow:0 6px 15px rgba(0,0,0,0.25); transition: all 0.3s ease; }
+#passwordSubmit:hover{ transform:scale(1.05); box-shadow:0 8px 25px rgba(0,0,0,0.3);}
+#passwordSubmit:active{ transform:scale(0.95); }
+
+/* ===== Responsive mobil ===== */
+@media screen and (max-width: 500px){
+  #puzzleCanvas { width: 90vw; height: 90vw; }
+  #puzzleMessage { font-size: 1.6em; }
+  .digitalCounter { font-size: 2.2em; }
+  #passwordInput, #passwordSubmit { font-size:1.3em; padding:12px 18px; }
+}

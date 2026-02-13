@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<!-- PWA iPhone -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="❤️ Love App">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff7eb3">
+
+<title>V-day Special ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="heartCanvas" class="heartCanvas"></canvas>
+
+<div id="valentineScreen" class="screen">
+  <h1>Will you be my Valentine, Bubu? ❤️</h1>
+  <div class="buttons">
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+</div>
+
+<div id="passwordScreen" class="screen hidden">
+  <h2>Introdu parola pentru acces ❤️</h2>
+  <input type="text" id="passwordInput" placeholder="Parola aici..." />
+  <button id="passwordBtn">Trimite</button>
+  <p id="passwordFeedback"></p>
+</div>
+
+<div id="homeScreen" class="screen hidden">
+  <h1>❤️ Pentru Bubu ❤️</h1>
+  <div class="homeButtons">
+    <button id="timeBtn">De când călătorim împreună prin timp și amintiri?</button>
+    <button id="loveBtn">Cât de mult mă iubești astăzi?</button>
+    <button id="quoteBtn">Citatul / Complimentul zilei</button>
+    <button id="puzzleBtn">Puzzle cu noi 🧩</button>
+  </div>
+</div>
+
+<div id="timeScreen" class="screen hidden">
+  <h2>De când călătorim împreună prin timp și amintiri?</h2>
+  <div id="timeCounter" class="digitalCounter"></div>
+  <button class="backBtn">Înapoi</button>
+</div>
+
+<div id="loveScreen" class="screen hidden">
+  <h2>Cât de mult mă iubești astăzi?</h2>
+  <div id="sliderContainer">
+    <div id="sliderSteps"></div>
+    <div id="heartPointer">💖</div>
+  </div>
+  <p id="loveMessage"></p>
+  <button class="backBtn">Înapoi</button>
+</div>
+
+<div id="quoteScreen" class="screen hidden">
+  <h2>Citatul / Complimentul zilei</h2>
+  <p id="quoteMessage" class="premiumQuote"></p>
+  <button class="backBtn">Înapoi</button>
+</div>
+
+<div id="puzzleScreen" class="screen hidden">
+  <h2>Puzzle cu noi 🧩</h2>
+  <canvas id="puzzleCanvas"></canvas>
+  <p id="puzzleMessage"></p>
+  <button class="backBtn">Înapoi</button>
+</div>
+
+<script src="script.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+
+</body>
+</html>
